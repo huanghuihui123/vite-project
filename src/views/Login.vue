@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref, onBeforeMount, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import md5 from 'blueimp-md5'
-import type { ElForm } from 'element-plus'
+import { useRouter } from 'vue-router';
+import md5 from 'blueimp-md5';
+import type { ElForm } from 'element-plus';
 
 // InstanceType<T>：获取构造函数类型的实例类型
 type FormInstance = InstanceType<typeof ElForm>
