@@ -3,4 +3,4 @@ dist
 README.md
 yarn.lock
 .gitignore
-.prettierignore
+.eslintignore
