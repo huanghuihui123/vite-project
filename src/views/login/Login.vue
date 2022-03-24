@@ -122,13 +122,13 @@ const submitForm = (formEl: FormInstance | undefined) => {
 </template>
 
 <style lang="scss" module>
-@import '../styles/common.scss';
+@import '../../styles/common.scss';
 .login {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../assets/img/login-bg.png') no-repeat;
+    background: url('../../assets/img/login-bg.png') no-repeat;
 }
 
 .loginForm {

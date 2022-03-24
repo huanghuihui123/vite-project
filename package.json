@@ -8,7 +8,8 @@
         "preview": "vite preview",
         "prettier": "prettier --write .",
         "lint": "eslint --ext .vue,.ts,.js,.json --fix",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "test": "jest"
     },
     "dependencies": {
         "blueimp-md5": "^2.19.0",
@@ -18,24 +19,58 @@
         "vue-router": "4"
     },
     "devDependencies": {
+        "@types/jest": "^27.4.1",
         "@typescript-eslint/eslint-plugin": "^5.15.0",
         "@typescript-eslint/parser": "^5.15.0",
         "@vitejs/plugin-legacy": "^1.7.1",
         "@vitejs/plugin-vue": "^2.2.0",
+        "@vue/test-utils": "^2.0.0-rc.17",
+        "@vue/vue3-jest": "^27.0.0-alpha.4",
         "autoprefixer": "^10.4.2",
+        "babel-jest": "^27.5.1",
         "eslint": "^8.11.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^8.5.0",
+        "husky": "^7.0.0",
+        "jest": "^27.4.1",
         "postcss-px-to-viewport": "^1.1.1",
         "prettier": "^2.5.1",
         "sass": "^1.49.9",
+        "ts-jest": "^27.1.3",
         "typescript": "^4.5.4",
         "unplugin-auto-import": "^0.6.1",
         "unplugin-vue-components": "^0.17.21",
         "vite": "^2.8.0",
-        "vue-tsc": "^0.29.8",
-        "husky": "^7.0.0"
+        "vue-tsc": "^0.29.8"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "moduleFileExtensions": [
+            "vue",
+            "js",
+            "json",
+            "ts"
+        ],
+        "transform": {
+            "^.+\\.vue$": "@vue/vue3-jest",
+            "^.+\\js$": "babel-jest",
+            "^.+\\.(t|j)sx?$": "ts-jest"
+        },
+        "moduleNameMapper": {
+            "^@/(.*)$": "<rootDir>/src/$1"
+        },
+        "transformIgnorePatterns": [
+            "node_modules/"
+        ]
+    },
+    "globals": {
+        "@vue/vue3-jest": {
+            "compilerOptions": {
+                "propsDestructureTransform": true,
+                "refTransform": false
+            }
+        }
     }
 }
