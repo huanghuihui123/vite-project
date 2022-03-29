@@ -14,22 +14,44 @@ onMounted(() => {
 
 <template>
     <el-container :class="$style.container">
-        <el-header :class="$style.header">222222</el-header>
+        <el-header :class="$style.header">工信局信息管理系统</el-header>
         <el-main :class="$style.main">
-            <el-menu router :default-active="defaultActive" :class="$style.menu">
-                <el-menu-item index="/home">
-                    <span>首页</span>
-                </el-menu-item>
-                <el-menu-item index="/order">
-                    <span>订单管理</span>
-                </el-menu-item>
-                <el-sub-menu index="/goods">
+            <el-menu
+                router
+                :default-active="defaultActive"
+                :unique-opened="true"
+                :class="$style.menu"
+            >
+                <el-sub-menu index="/noticeManage">
                     <template #title>
-                        <span>商品管理</span>
+                        <span>公告管理</span>
                     </template>
-                    <el-menu-item index="/category">商品分类</el-menu-item>
-                    <el-menu-item index="/goods">商品列表</el-menu-item>
+                    <el-menu-item index="/privateNotice">内部公告</el-menu-item>
+                    <el-menu-item index="/publicNotice">外部公告</el-menu-item>
                 </el-sub-menu>
+                <el-sub-menu index="/organizationManage">
+                    <template #title>
+                        <span>机构管理</span>
+                    </template>
+                    <el-menu-item index="/introduce">机构概况</el-menu-item>
+                    <el-menu-item index="/leader">机构领导</el-menu-item>
+                    <el-menu-item index="/inside">内设机构</el-menu-item>
+                    <el-menu-item index="/directlyUnder">直属概况</el-menu-item>
+                    <el-menu-item index="/staff">机构员工</el-menu-item>
+                </el-sub-menu>
+                <el-sub-menu index="/QAManage">
+                    <template #title>
+                        <span>QA管理</span>
+                    </template>
+                    <el-menu-item index="/consult">咨询公告</el-menu-item>
+                    <el-menu-item index="/news">消息公告</el-menu-item>
+                </el-sub-menu>
+                <el-menu-item index="/propertyManage">
+                    <!-- <el-icon>
+                        <icon-menu />
+                    </el-icon> -->
+                    <span>资产管理</span>
+                </el-menu-item>
             </el-menu>
             <div :class="$style.content">
                 <router-view />
@@ -45,8 +67,11 @@ onMounted(() => {
 }
 
 .header {
+    display: flex;
+    align-items: center;
     height: 80px;
-    background-color: #0094ff;
+    color: #fff;
+    background-color: rgba(0, 0, 128, 1);
 }
 
 .main {
@@ -63,7 +88,7 @@ onMounted(() => {
 .content {
     flex: 1;
     overflow: auto;
-    margin: 10px;
+    margin: 15px;
     background-color: #fff;
 }
 </style>

@@ -32,8 +32,8 @@ export default defineConfig({
             // imports: ['vue', 'vue-router']
         }),
         Components({
-            dirs: ['./src/components'], // 要搜索组件的目录的相对路径
-            deep: true, // 搜索子目录
+            // dirs: ['./src/components'], // 要搜索组件的目录的相对路径
+            // deep: true, // 搜索子目录
             resolvers: [
                 ElementPlusResolver({
                     importStyle: 'sass'

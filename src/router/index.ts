@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 // import { ElMessage } from "element-plus";
 
 const routes: Array<RouteRecordRaw> = [
-    { path: '/', redirect: '/home' },
+    { path: '/', redirect: '/publicNotice' },
     {
         path: '/layout',
         name: 'Layout',
@@ -10,31 +10,118 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "layout" */ '@/views/layout/Layout.vue'),
         children: [
             {
-                path: '/home',
-                name: 'Home',
+                path: '/noticeManage',
+                name: 'NoticeManage',
                 component: () =>
-                    import(/* webpackChunkName: "home" */ '@/views/layout/home/Home.vue'),
-                meta: { requiresAuth: false }
+                    import(
+                        /* webpackChunkName: "NoticeManage" */ '@/views/layout/noticeManage/Index.vue' // 公告管理
+                    ),
+                meta: { requiresAuth: true },
+                children: [
+                    {
+                        path: '/publicNotice',
+                        name: 'PublicNotice',
+                        component: () =>
+                            import(
+                                /* webpackChunkName: "PublicNotice" */ '@/views/layout/noticeManage/PublicNotice.vue' // 对内公告
+                            ),
+                        meta: { requiresAuth: true }
+                    },
+                    {
+                        path: '/privateNotice',
+                        name: 'PrivateNotice',
+                        component: () =>
+                            import(
+                                /* webpackChunkName: "PrivateNotice" */ '@/views/layout/noticeManage/PrivateNotice.vue' // 对外公告
+                            ),
+                        meta: { requiresAuth: true }
+                    },
+                    {
+                        path: '/addNotice',
+                        name: 'AddNotice',
+                        component: () =>
+                            import(
+                                /* webpackChunkName: "AddNotice" */ '@/views/layout/noticeManage/AddNotice.vue' // 对外公告
+                            ),
+                        meta: { requiresAuth: true }
+                    }
+                ]
             },
             {
-                path: '/order',
-                name: 'Order',
+                path: '/introduce',
+                name: 'Introduce',
                 component: () =>
-                    import(/* webpackChunkName: "order" */ '@/views/layout/order/Order.vue'),
+                    import(
+                        /* webpackChunkName: "Introduce" */ '@/views/layout/organizationManage/Introduce.vue'
+                    ),
                 meta: { requiresAuth: true }
             },
             {
-                path: '/goods',
-                name: 'Goods',
+                path: '/leader',
+                name: 'Leader',
                 component: () =>
-                    import(/* webpackChunkName: "goods" */ '@/views/layout/goods/Goods.vue'),
+                    import(
+                        /* webpackChunkName: "Leader" */ '@/views/layout/organizationManage/Leader.vue'
+                    ),
                 meta: { requiresAuth: true }
             },
             {
-                path: '/category',
-                name: 'Category',
+                path: '/addLeader',
+                name: 'AddLeader',
                 component: () =>
-                    import(/* webpackChunkName: "category" */ '@/views/layout/goods/Category.vue'),
+                    import(
+                        /* webpackChunkName: "AddLeader" */ '@/views/layout/organizationManage/addLeader.vue'
+                    ),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/inside',
+                name: 'Inside',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "Inside" */ '@/views/layout/organizationManage/Inside.vue'
+                    ),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/directlyUnder',
+                name: 'DirectlyUnder',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "DirectlyUnder" */ '@/views/layout/organizationManage/DirectlyUnder.vue'
+                    ),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/staff',
+                name: 'Staff',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "Staff" */ '@/views/layout/organizationManage/Staff.vue'
+                    ),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/consult',
+                name: 'Consult',
+                component: () =>
+                    import(/* webpackChunkName: "Consult" */ '@/views/layout/QAManage/Consult.vue'),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/news',
+                name: 'News',
+                component: () =>
+                    import(/* webpackChunkName: "News" */ '@/views/layout/QAManage/News.vue'),
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/propertyManage',
+                name: 'PropertyManage',
+                component: () =>
+                    import(
+                        /* webpackChunkName: "PropertyManage" */ '@/views/layout/propertyManage/PropertyManage.vue'
+                    ),
                 meta: { requiresAuth: true }
             }
         ]
