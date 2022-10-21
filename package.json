@@ -12,7 +12,6 @@
         "test": "jest"
     },
     "dependencies": {
-        "blueimp-md5": "^2.19.0",
         "element-plus": "^2.0.4",
         "normalize.css": "^8.0.1",
         "vue": "^3.2.25",

@@ -10,8 +10,10 @@ export default defineConfig({
     server: {
         proxy: {
             '/api': {
-                target: 'http://jsonplaceholder.typicode.com',
+                // target: 'http://192.168.0.25:6796',
+                target: 'http://commons.jxminxun.com/',
                 changeOrigin: true
+                // rewrite: (path) => path.replace(/^\/api/, '')
             }
         }
     },
@@ -28,12 +30,12 @@ export default defineConfig({
             targets: ['defaults', 'not IE 11']
         }),
         AutoImport({
-            resolvers: [ElementPlusResolver()]
-            // imports: ['vue', 'vue-router']
+            resolvers: [ElementPlusResolver()],
+            imports: ['vue', 'vue-router']
         }),
         Components({
-            // dirs: ['./src/components'], // 要搜索组件的目录的相对路径
-            // deep: true, // 搜索子目录
+            dirs: ['./src/components'], // 要搜索组件的目录的相对路径
+            deep: true, // 搜索子目录
             resolvers: [
                 ElementPlusResolver({
                     importStyle: 'sass'

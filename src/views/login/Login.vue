@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref, onBeforeMount, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import md5 from 'blueimp-md5'
 import type { ElForm } from 'element-plus'
 
 // InstanceType<T>：获取构造函数类型的实例类型
@@ -59,7 +58,6 @@ const submitForm = (formEl: FormInstance | undefined) => {
     formEl.validate((valid) => {
         if (valid) {
             const formData = { ...ruleForm }
-            formData.password = md5(formData.password)
             if (checked.value) {
                 localStorage.setItem('account', formData.account)
             }
